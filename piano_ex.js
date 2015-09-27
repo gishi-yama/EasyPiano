@@ -73,7 +73,7 @@ document.onkeydown = function (e) {
 // キーを離した時に実行される関数
 document.onkeyup = function (e) {
   var inputKey = e.keyCode;
-  if (playingOSCs[inputKey]) {
+  if (playingOSCs[inputKey] && freqs.hasOwnProperty(inputKey)) {
     playingOSCs[inputKey].stop();
     delete playingOSCs[inputKey];
     scaleView();
@@ -82,7 +82,8 @@ document.onkeyup = function (e) {
 
 // 押されているキーの一覧表示を切り替える関数
 function scaleView() {
-  var scaleValue, key;
+  var scaleValue = '';
+  var key = null;
   for (key in playingOSCs) {
     scaleValue = scaleValue + scales[key] + ' ';
   }
