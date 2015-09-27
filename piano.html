@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 同時押しに対応する場合は piano_ex.js に変更してください -->
+  <script type="text/javascript" src="piano.js" defer></script>
+</head>
+
+<body>
+
+  <p>ここに再生している音階が表示されます：<span id="scale">&nbsp;</span></p>
+  <div>
+    <form name="typeForm">
+      <input type="radio" name="wave" value="sine" onClick="changeType()" checked> 正弦波
+      <input type="radio" name="wave" value="square" onClick="changeType()"> 矩形波
+      <input type="radio" name="wave" value="sawtooth" onClick="changeType()"> ノコギリ波
+      <input type="radio" name="wave" value="triangle" onClick="changeType()"> 三角波
+    </form>
+  </div>
+  <div>
+    <div id="volumeView">音量：10%</div>
+    <form name='volumeForm'>
+      <input id="range" type="range" value="0.1" step="0.1" min="0" max="1" onchange="changeVolume()">
+    </form>
+  </div>
+</body>
+
+</html>
